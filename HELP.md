@@ -47,7 +47,7 @@ A UserDto can be defined like that fot the POST and PUT body and the GET result:
 "phoneNumber": "+33610287915"  
 }
 
-id : Not in the POST or PUT  
+id : Not mandatory in the POST or PUT to generate an id. In the PUT it can be used to update data.  
 gender : Optional "Male" or "Female"  
 name : Mandatory  
 birthday : Mandatory YYYY-MM-DD  
