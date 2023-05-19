@@ -25,7 +25,7 @@ A user has optional attributes:
 
 A request parameter "verify" with default value to true, can be set to PUT request parameter to avoid updating an existing user (same name and birthday)
 
-Business rules : Only adult French residents are allowed to create an account.
+Business rules : Only adult French residents are allowed to create an account.  
 Inputs are validated and return proper error messages/http statuses.
 
 ### Bonus
@@ -38,14 +38,22 @@ Inputs are validated and return proper error messages/http statuses.
 A UserDto can be defined like that fot the POST and PUT body and the GET result:
 
 {  
-"id": 1,  // Not in the POST or PUT
-"gender": "Male",  // Optional "Male" or "Female"
-"name": "Dupont",  // Mandatory
-"birthday": "2000-10-21", // Mandatory 
-"countryName": "France",  // Optional if countryCode is valid
-"countryCode": "fr",  // Optional if countryName is valid
+"id": 1,  
+"gender": "Male",  
+"name": "Dupont",  
+"birthday": "2000-10-21",  
+"countryName": "France",  
+"countryCode": "fr",  
 "phoneNumber": "+33610287915"  
 }
+
+id : Not in the POST or PUT  
+gender : Optional "Male" or "Female"  
+name : Mandatory  
+birthday : Mandatory YYYY-MM-DD  
+countryName : Optional if countryCode is valid  
+countryCode : Optional if countryName is valid
+phoneNumber : Optional + followed by digits  
 
 The name, birthday and countryOfResidence are mandatory  
 The country of residence must contain name or countryCode
@@ -72,13 +80,15 @@ A UserDto is returned.
 To delete a user by its id
 
 ### The error messages
-The error message is defined like this if any error occurs:  
+The error message is returned like this if any error occurs:  
 {  
 "errorCode": An internal error code,  
 "errorMessage": "The error message",  
 "devErrorMessage": The stack trace  
-"additionalData": {} (could have been representative in a real project)  
+"additionalData": {}  
 }
+
+additionalData : could have been representative in a real project  
 
 ## The architecture
 ### A layer architecture
