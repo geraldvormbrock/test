@@ -52,24 +52,24 @@ gender : Optional "Male" or "Female"
 name : Mandatory  
 birthday : Mandatory YYYY-MM-DD  
 countryName : Optional if countryCode is valid  
-countryCode : Optional if countryName is valid
+countryCode : Optional if countryName is valid  
 phoneNumber : Optional + followed by digits  
 
 The name, birthday and countryOfResidence are mandatory  
 The country of residence must contain name or countryCode
 
-The file data.sqm in resources directory set the default countries.
+The file [data.sql](src/main/resources/data.sql) in resources directory set the default countries.
 Country controller web service have not been developed but CountryService exists.
 
 ### How to call the rest API
 
-* GET : (Return code 200 if Ok) a list of UsersDto localhost:8080/users  
+* GET : (Return code 200 if Ok) return a list of UsersDto localhost:8080/users  
 To get a list of all users
 
-* GET : (Return code 200 if Ok) a UserDto localhost:8080/users/{id}  
+* GET : (Return code 200 if Ok) return a UserDto localhost:8080/users/{id}  
 To get a UserDto by the user id
 
-* POST/PUT : (Return code 201 if Ok) localhost:8080/users (UserDto)  
+* POST/PUT : (Return code 201 if Ok) return a UserDto localhost:8080/users (UserDto)  
 The response body contains a UserDto with the id and the countryName and countryCode set.  
 The post can be done if mandatory fields are presents, if the age of user is less than 18 years and if country is France.
 For the PUT, a request parameter "verify" can be set to "false" to avoid existing verification and update by id.
