@@ -21,12 +21,10 @@ public class Country {
     private Long id;
 
     @NotNull
-    @Size(min = 3, max = 50, message = "Country Name must be minimum 3 characters and maximum 50 characters long")
-    @Pattern(regexp = "^[A-Za-z]+$", message = "Must be only characters")
+    @Size(min = 3, max = 100, message = "Country Name must be minimum 3 characters and maximum 100 characters long")
     String name;
 
     @NotNull
-    @Size(min = 2, max = 3, message = "CountryCode must be minimum 2 characters and maximum 3 characters long")
-    @Pattern(regexp = "^[A-Za-z]+$", message = "Must be only characters")
+    @Size(min = 2, max = 2, message = "CountryCode must be exactly 2 characters long")
     private String countryCode;
 }
