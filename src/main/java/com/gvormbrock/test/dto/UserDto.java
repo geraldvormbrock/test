@@ -29,8 +29,8 @@ public class UserDto {
     @NotNull
     Date birthday;
 
-    @Pattern(regexp = "^[a-zA-Z]+$", message = "Country name can be only be alphanumerical characters")
-    @Size(min = 3, max = 50, message = "Country name must be minimum 3 characters and maximum 50 characters long")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s\\-'().]*$", message = "Country name can be only be alphanumerical characters")
+    @Size(min = 3, max = 100, message = "Country name must be minimum 3 characters and maximum 100 characters long")
     String countryName;
 
     @Pattern(regexp = "^[a-z]+$", message = "Country code can be only be lower case alphanumerical characters")
@@ -38,6 +38,6 @@ public class UserDto {
     String countryCode;
 
     @Size(min = 2, max = 50, message = "Phone number must be minimum 2 characters and maximum 50 characters long")
-    @Pattern(regexp = "^\\+?[0-9]+$", message = "Can be + followed by a number or simply a number")
+    @Pattern(regexp = "^\\+?\\d{1,3}[\\s-]?\\(?\\d{1,3}\\)?[\\s-]?\\d{1,4}[\\s-]?\\d{1,4}[\\s-]?\\d{1,9}$", message = "Can be + followed by a number or simply a number")
     String phoneNumber;
 }
